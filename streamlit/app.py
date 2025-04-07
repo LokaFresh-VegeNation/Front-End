@@ -1,36 +1,67 @@
 import streamlit as st
 import pandas as pd
-import requests  # To make API requests
+import requests
 
-# Function to get data from the API
-def get_prediction_data():
-    url = "http://127.0.0.1:5000/linreg/predict?comodity=cabai&num_days=30"  # API URL
-    response = requests.get(url)  # Making the GET request
-    return response.json()  # Returning the response as JSON
+base_url = 'http://'
 
-# Get the data from the API
-data = get_prediction_data()
+# Function to get prediction data from the API
+def get_prediction_data(commodity, num_days):
+    url = f"{base_url}/linreg/predict?comodity={commodity}&num_days={num_days}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        st.error("Failed to fetch prediction data.")
+        return None
 
-# Extract the prediction data
-dates = list(data["predictions"].keys())
-all_provinces = [data["predictions"][date]["All Provinces"] for date in dates]
-jakarta = [data["predictions"][date]["Jakarta"] for date in dates]
-west_java = [data["predictions"][date]["West Java"] for date in dates]
+# Function to get articles from the API
+def get_articles():
+    url = f"{base_url}/get_articles"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json().get("results", [])
+    else:
+        st.error("Failed to fetch articles.")
+        return []
 
-# Create a DataFrame for easy plotting
-df = pd.DataFrame({
-    "Date": dates,
-    "All Provinces": all_provinces,
-    "Jakarta": jakarta,
-    "West Java": west_java
-})
+# Streamlit UI
+st.title("Commodity Price Prediction")
+st.subheader("Visualize future predictions and read related articles.")
 
-# Set the Date column as the index
-df.set_index("Date", inplace=True)
+# User input for commodity and number of days
+commodity = st.selectbox("Select a commodity", ["cabai", "bawang_merah", "bawang_putih"])
+num_days = st.number_input("Enter number of prediction days", min_value=1, max_value=60, value=10)
 
-# Display the Streamlit page
-st.title("Prediction for Cabai")
-st.subheader("Visualization of predictions for the next 10 days.")
+# Fetch and display prediction data
+data = get_prediction_data(commodity, num_days)
+if data:
+    dates = list(data["predictions"].keys())
+    all_provinces = [data["predictions"][date]["All Provinces"] for date in dates]
+    jakarta = [data["predictions"][date]["Jakarta"] for date in dates]
+    west_java = [data["predictions"][date]["West Java"] for date in dates]
 
-# Display the line chart using Streamlit's built-in function
-st.line_chart(df)
+    df = pd.DataFrame({
+        "Date": dates,
+        "All Provinces": all_provinces,
+        "Jakarta": jakarta,
+        "West Java": west_java
+    })
+    df.set_index("Date", inplace=True)
+
+    st.line_chart(df)
+else:
+    st.warning("No data available for the selected options.")
+
+# Display articles
+st.subheader("📰 Related Articles")
+articles = get_articles()
+if articles:
+    for article in articles:
+        with st.container():
+            st.image(article["img_url"], width=250)
+            st.markdown(f"### [{article['title']}]({article['link']})")
+            st.caption(article["date"])
+            st.write(article["description"])
+            st.markdown("---")
+else:
+    st.info("No articles to display.")
