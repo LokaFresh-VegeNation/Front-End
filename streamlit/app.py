@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 
-base_url = 'http://'
+base_url = '  https://5af9-43-252-237-83.ngrok-free.app'
 
 # Function to get prediction data from the API
 def get_prediction_data(commodity, num_days):
