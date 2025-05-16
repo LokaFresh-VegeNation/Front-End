@@ -3,6 +3,7 @@ import Footer from '@/components/Footer/Footer';
 import styles from '@/styles/Home.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import FloatingChatbot from '@/components/Chatbot/FloatingChatbot';
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
             </Link>
           </div>
         </section>
+        <FloatingChatbot />
         <Footer />
       </div>
     </>

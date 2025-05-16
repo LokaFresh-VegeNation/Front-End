@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap');
+/* CSS yang sudah ada */
+.container {
+  padding: 100px 20px 20px 20px; /* Tambahkan padding-top 80px */
+  background-color: #3D8D7A;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/*Input field*/
+.topFilter {
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  background-color: #3D8D7A;
+}
+
+.inputField {
+  flex: 1;
+  padding: 12px 16px;
+  background-color: #3D8D7A;
+  border: solid;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+}
+
+.button {
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-style: solid;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #3D8D7A;
+}
+
+.button:hover {
+  background-color: #B1D9AA;
+}
+
+
+/*Content Utama */
+.mainContent {
+  display: flex;
+  gap: 20px;
+  
+  flex: 1;
+}
+
+/*Chart section*/
+.chartPlaceholder {
+  padding: 2%;
+  flex: 2;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column; /* ini bikin card di atas, chart di bawah */
+  align-items: stretch; /* biar item ikut lebar kotak */
+  justify-content: flex-start; /* start dari atas */
+  gap: 20px; /* jarak antara card & chart */
+  font-size: 10px;
+  color: black;
+  background-color: #f5f5f5;
+}
+
+.chartTitle {
+  text-align: center;
+  color: #333;
+}
+
+/* Loading Screen*/
+.chartLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  border-radius: 20px;
+}
+
+/* Pesan Awal Sebelum Prediksi */
+.chartPlaceholderMessage {
+  text-align: center;
+  margin-top: 100px;
+  color: #777;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Dropdown dan Chart Type Selector */
+.viewSelectorWrapper,
+.chartTypeWrapper {
+  background: #e8f5e9; /* hijau muda yang lembut */
+  border-radius: 20px;
+  padding: 4px;
+  display: flex;
+  gap: 4px;
+}
+
+.viewSelector,
+.chartTypeButton {
+  border: none;
+  background: transparent;
+  color: #2e7d32; /* hijau gelap */
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.chartTypeButton:hover {
+  background-color: none;
+}
+
+.active {
+  background: #4caf50;
+  color: #fff;
+}
+
+/*Sidebar*/
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #3D8D7A;
+}
+
+/*Sidebar Artikel*/
+.sidebarItem {
+  flex: 1;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: black;
+  padding: 16px;
+  background-color: white;
+}
+
+/*Sidebar Chatbot*/
+.sidebarItem1 {
+  flex: 1;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 18px;
+  color: black;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Untuk scrool chatbot*/
+.chatbotWrapper {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px; /* atau tinggi sesuai kebutuhan */
+  padding-right: 4px; /* agar tidak potong scrollbar */
+}
+
+/* Tambahan untuk CSS responsif */
+@media (max-width: 768px) {
+  .topFilter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inputField,
+  .button {
+    width: 100%;
+  }
+
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex-direction: column;
+  }
+
+  .chartPlaceholder {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .sidebarItem,
+  .sidebarItem1 {
+    width: 100%;
+    overflow: auto;
+  }
+
+  .viewSelectorWrapper,
+  .chartTypeWrapper {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .chartTypeButton {
+    width: 100%;
+  }
+}
