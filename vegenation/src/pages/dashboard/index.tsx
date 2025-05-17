@@ -9,8 +9,6 @@ import Articles from '@/components/Articles/Articles';
 import ChatBot from '@/components/Chatbot/Chatbot';
 import { fetchPrediction, fetchArticles } from '@/lib/api';
 import { parseISO, format, startOfWeek, startOfMonth } from 'date-fns';
-import { logoutUser } from '@/lib/auth';
-import { useRouter } from 'next/router';
 import Navbar from '@/components/Navbar/Navbar';
 
 const aggregateData = (data: ChartItem[], mode: 'day' | 'week' | 'month') => {
@@ -44,12 +42,6 @@ type ChartItem = {
 
 const Dashboard: React.FC = () => {
 
-const router = useRouter();
-
-const handleLogout = () => {
-  logoutUser();
-  router.push('/');
-};
 
 
   const [selectedCommodity, setSelectedCommodity] = useState<string>('');
@@ -260,7 +252,7 @@ const handleLogout = () => {
           </div>
         </div>
       </div>
-      <button onClick={handleLogout}>Logout</button>
+     
     </div>
 </>
     

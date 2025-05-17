@@ -59,7 +59,6 @@
 .bottomButtons {
   display: none;
   gap: 16px;
-  margin-top: 12px;
   justify-content: center;
   width: 100%;
 }

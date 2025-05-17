@@ -92,10 +92,13 @@
   border-radius: 20px;
 }
 
+
+
 /* Pesan Awal Sebelum Prediksi */
 .chartPlaceholderMessage {
   text-align: center;
   margin-top: 100px;
+  margin-bottom: 100px;
   color: #777;
   font-size: 18px;
   font-weight: 500;
@@ -104,7 +107,7 @@
 /* Dropdown dan Chart Type Selector */
 .viewSelectorWrapper,
 .chartTypeWrapper {
-  background: #e8f5e9; /* hijau muda yang lembut */
+  background: #f5f5f5; 
   border-radius: 20px;
   padding: 4px;
   display: flex;
@@ -198,6 +201,10 @@
   .chartPlaceholder {
     width: 100%;
     padding: 10px;
+  }
+
+  .chartPlaceholderMessage {
+    font-size: 14px;
   }
 
   .sidebarItem,
