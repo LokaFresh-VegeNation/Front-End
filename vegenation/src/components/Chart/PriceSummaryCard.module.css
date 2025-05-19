@@ -53,6 +53,21 @@
   color: #333;
 }
 
+.saveButton {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  background-color: #45a049;
+}
+
 /* RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 600px) {
   .price {

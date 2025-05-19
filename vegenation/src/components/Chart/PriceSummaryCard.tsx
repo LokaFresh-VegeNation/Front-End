@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { parseCookies } from 'nookies';
 import styles from './PriceSummaryCard.module.css';
 
 interface PriceSummaryCardProps {
@@ -15,8 +16,15 @@ const PriceSummaryCard: React.FC<PriceSummaryCardProps> = ({
   previousPrice,
   firstPrice,
   date,
-  commodityName
+  commodityName,
 }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const cookies = parseCookies();
+    setIsLoggedIn(!!cookies.token); // asumsi login via cookie token
+  }, []);
+
   if (latestPrice == null || firstPrice == null) {
     return (
       <div className={styles.card}>
@@ -46,6 +54,21 @@ const PriceSummaryCard: React.FC<PriceSummaryCardProps> = ({
     indicatorClass = styles.indicatorGray;
   }
 
+  const handleSavePrediction = () => {
+    const prediction = {
+      commodityName,
+      latestPrice,
+      firstPrice,
+      date,
+      savedAt: new Date().toISOString(),
+    };
+
+    const existing = JSON.parse(localStorage.getItem('savedPredictions') || '[]');
+    existing.push(prediction);
+    localStorage.setItem('savedPredictions', JSON.stringify(existing));
+    alert('Prediksi berhasil disimpan!');
+  };
+
   return (
     <div className={styles.card}>
       <div>
@@ -71,6 +94,12 @@ const PriceSummaryCard: React.FC<PriceSummaryCardProps> = ({
         </div>
 
         <div className={styles.date}>{date ?? ''}</div>
+
+        {isLoggedIn && (
+          <button className={styles.saveButton} onClick={handleSavePrediction}>
+            Simpan Prediksi
+          </button>
+        )}
       </div>
     </div>
   );

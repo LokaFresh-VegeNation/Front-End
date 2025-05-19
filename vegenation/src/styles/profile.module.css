@@ -6,7 +6,7 @@
   background-image: url(/background.jpg);
   background-size: cover;
   background-position: center;
-  font-family: 'Playfair Display', serif;
+  font-family: poppins;
   position: relative;
 }
 
@@ -130,7 +130,6 @@
 .saveBtn,
 .editBtn {
   grid-column: 1 / -1;
-  margin-top: 1rem;
   padding: 1rem;
   background-color: #368e7a;
   border: none;
@@ -145,6 +144,87 @@
 .editBtn:hover {
   background-color: #b1d9aa;
 }
+
+.pagination {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: #3498db;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
+
+.predictionList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.predictionCard {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease;
+}
+
+.predictionCard:hover {
+  transform: scale(1.02);
+}
+
+.predictionCard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.predictionCard p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.deleteBtn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.deleteBtn:hover {
+  background: #c0392b;
+}
+
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {

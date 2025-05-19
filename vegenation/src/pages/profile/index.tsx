@@ -150,7 +150,7 @@ export default function ProfilePage() {
                 />
               </div>
               <button type="submit" className={styles.saveBtn}>
-                {isEditing ? '💾 Save Changes' : '✏️ Edit Profile'}
+                {isEditing ? ' Save Changes' : ' Edit Profile'}
               </button>
             </form>
           </main>
