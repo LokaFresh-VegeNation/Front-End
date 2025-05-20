@@ -29,7 +29,10 @@ const PriceChart: React.FC<ChartProps> = ({ data }) => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis tickFormatter={formatHarga} />
+        <YAxis
+          tickFormatter={formatHarga}
+          domain={['dataMin - 10', 'dataMax + 10']}
+        />
         <Tooltip formatter={(value: any) => formatHarga(value)} />
         <Line
           type="monotone"

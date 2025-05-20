@@ -71,6 +71,23 @@
   color: #b30000;
 }
 
+.menuList {
+  list-style: none;
+  padding: 0;
+}
+
+.menuList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  color: white;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+
 .main {
   flex: 1;
   background-color: rgba(0, 150, 136, 0.3);
@@ -82,7 +99,7 @@
 
 .profileHeader {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .avatar {
@@ -127,6 +144,11 @@
   grid-column: 1 / -1;
 }
 
+.fullWidth textarea {
+  grid-column: 1 / -1;
+  font-family: poppins;
+}
+
 .saveBtn,
 .editBtn {
   grid-column: 1 / -1;
@@ -146,7 +168,6 @@
 }
 
 .pagination {
-  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,7 +177,7 @@
 .pagination button {
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  background: #3498db;
+  background: #368e7a;
   color: white;
   border: none;
   font-weight: bold;
@@ -164,7 +185,7 @@
 }
 
 .pagination button:disabled {
-  background: #ccc;
+  background: #b1d9aa;
   cursor: not-allowed;
 }
 
@@ -209,7 +230,7 @@
 }
 
 .deleteBtn {
-  margin-top: 1rem;
+  margin-top: 8px;
   padding: 0.5rem 1rem;
   background: #e74c3c;
   color: white;
@@ -245,4 +266,41 @@
   .form {
     grid-template-columns: 1fr;
   }
+
+  .sectionTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination span {
+  font-size: 12px;
+} 
+
+
+
+.pagination button {
+  padding: 0.5rem 0.5rem;
+  font-size: 9px;
+}
+
+  .predictionCard p {
+  margin: 0.25rem 0;
+  font-size: 12px;
+}
+
+.deleteBtn {
+  margin-top: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+}
+
 }

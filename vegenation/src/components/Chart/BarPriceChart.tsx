@@ -16,7 +16,10 @@ const BarPriceChart: React.FC<ChartProps> = ({ data }) => {
       <BarChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis tickFormatter={formatHarga} />
+        <YAxis
+          tickFormatter={formatHarga}
+          domain={['dataMin - 10', 'dataMax + 10']}
+        />
         <Tooltip formatter={(value: any) => formatHarga(value)} />
         <Bar dataKey="harga" fill="#4caf50" />
       </BarChart>

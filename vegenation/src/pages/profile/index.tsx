@@ -75,11 +75,39 @@ export default function ProfilePage() {
         <div className={styles.container}>
           <aside className={styles.sidebar}>
             <h2>User Profile</h2>
-            <ul>
-              <li onClick={() => router.push('/profile')}>👤 User info</li>
-              <li onClick={() => router.push('/profile/prediksi')}>📈 Prediksi</li>
-              <li onClick={handleLogout} className={styles.logoutButton}>↩️ Logout</li>
+            <ul className={styles.menuList}>
+              <li onClick={() => router.push('/profile')}>
+                <Image
+                  src="/icons/profile.png"
+                  alt="User Info"
+                  width={24}
+                  height={24}
+                  className={styles.icon}
+                />
+                <span>Profil</span>
+              </li>
+              <li onClick={() => router.push('/profile/prediksi')}>
+                <Image
+                  src="/icons/prediksi.png"
+                  alt="Prediksi"
+                  width={24}
+                  height={24}
+                  className={styles.icon}
+                />
+                <span>Prediksi</span>
+              </li>
+              <li onClick={handleLogout} className={styles.logoutButton}>
+                <Image
+                  src="/icons/logout.png"
+                  alt="Logout"
+                  width={24}
+                  height={24}
+                  className={styles.icon}
+                />
+                <span>Logout</span>
+              </li>
             </ul>
+
           </aside>
           <main className={styles.main}>
             <div className={styles.profileHeader}>

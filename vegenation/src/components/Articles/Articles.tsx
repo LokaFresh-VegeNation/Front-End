@@ -81,8 +81,8 @@ const Articles: React.FC<Props> = ({ articles = [], index = 0, onPrev, onNext })
 
       {/* Tombol Prev + Next bawah (mobile only) */}
       <div className={styles.bottomButtons}>
-        <button onClick={onPrev} className={styles.navButton}>←</button>
-        <button onClick={onNext} className={styles.navButton}>→</button>
+        <button onClick={onPrev} className={styles.navButton}>Prev</button>
+        <button onClick={onNext} className={styles.navButton}>Next</button>
       </div>
     </div>
   );

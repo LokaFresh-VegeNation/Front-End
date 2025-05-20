@@ -22,7 +22,10 @@ const AreaPriceChart: React.FC<ChartProps> = ({ data }) => {
         </defs>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis tickFormatter={formatHarga} />
+        <YAxis
+          tickFormatter={formatHarga}
+          domain={['dataMin - 10', 'dataMax + 10']}
+        />
         <Tooltip formatter={(value: any) => formatHarga(value)} />
         <Area type="monotone" dataKey="harga" stroke="#4caf50" fillOpacity={1} fill="url(#colorHarga)" />
       </AreaChart>
