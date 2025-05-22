@@ -94,7 +94,7 @@ export default function ProfilePage() {
                   height={24}
                   className={styles.icon}
                 />
-                <span>Prediksi</span>
+                <span>Riwayat Prediksi</span>
               </li>
               <li onClick={handleLogout} className={styles.logoutButton}>
                 <Image
@@ -104,7 +104,7 @@ export default function ProfilePage() {
                   height={24}
                   className={styles.icon}
                 />
-                <span>Logout</span>
+                <span>Keluar</span>
               </li>
             </ul>
 

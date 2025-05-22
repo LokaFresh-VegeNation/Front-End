@@ -19,7 +19,7 @@ const FloatingChatbot = () => {
      <button onClick={toggleChat} className={styles.chatbotToggle}>
   <div className={styles.iconWrapper}>
     <Image
-      src="/icons/chatbot2.png" // Ganti dengan logo kamu
+      src="/icons/chatbot2.png"
       alt="Chatbot"
       fill
       className={styles.chatbotIcon}

@@ -25,65 +25,58 @@ const Articles: React.FC<Props> = ({ articles = [], index = 0, onPrev, onNext })
 
   return (
     <div className={styles.articleContainer}>
-      {/* Tombol Prev samping (desktop only) */}
-      <button onClick={onPrev} className={`${styles.navButton} ${styles.sideButton}`}>←</button>
-
-      {/* Card Artikel */}
+      {/* Kartu Artikel dengan Overlay */}
       <div className={styles.articleCard}>
-        <div style={{ position: 'relative', width: '100%', height: 110, borderRadius: 8, overflow: 'hidden' }}>
+        <div className={styles.imageWrapper}>
           {article.img_url ? (
             <Image
               src={article.img_url}
               alt={article.title || 'Image'}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, 380px"
               unoptimized
             />
           ) : (
-            <div style={{ width: '100%', height: '100%', backgroundColor: '#ccc' }} />
+            <div className={styles.imageFallback} />
           )}
+
+          {/* Tombol di atas gambar */}
+          <button onClick={onPrev} className={`${styles.overlayNavButton} ${styles.leftOverlayButton}`}>←</button>
+          <button onClick={onNext} className={`${styles.overlayNavButton} ${styles.rightOverlayButton}`}>→</button>
+
+          {/* Konten overlay */}
+          <div className={styles.overlayContent}>
+            <h4 className={styles.articleTitle}>{article.title || 'No Title'}</h4>
+            <p className={styles.articleDescription}>{article.description || 'No description available.'}</p>
+
+            {/* Wrapper untuk date dan tombol */}
+            <div className={styles.bottomRow}>
+              <span className={styles.articleDate}>{article.date || 'Unknown date'}</span>
+              <div className={styles.buttonGroup}>
+                <button onClick={onPrev} className={`${styles.navButtonInline}`}>←</button>
+                {article.link && (
+                  <a
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.articleLink}
+                  >
+                    Baca selengkapnya
+                  </a>
+                )}
+                <button onClick={onNext} className={`${styles.navButtonInline}`}>→</button>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <h4 className={styles.articleTitle} style={{ fontSize: 12, margin: '8px 0 4px', color: '#333' }}>
-          {article.title || 'No Title'}
-        </h4>
-
-        <p className={styles.articleDescription} style={{ fontSize: 10, color: '#555', margin: '4px 0' }}>
-          {article.description || 'No description available.'}
-        </p>
-
-        <p style={{ fontSize: 8, color: '#999', margin: '4px 0' }}>{article.date || 'Unknown date'}</p>
-
-        {article.link && (
-          <a
-            href={article.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.articleLink}
-            style={{
-              display: 'inline-block',
-              marginTop: 6,
-              padding: '4px 8px',
-              fontSize: 10,
-              backgroundColor: '#4CAF50',
-              color: 'white',
-              borderRadius: 4,
-              textDecoration: 'none'
-            }}
-          >
-            Baca selengkapnya
-          </a>
-        )}
       </div>
 
-      {/* Tombol Next samping (desktop only) */}
-      <button onClick={onNext} className={`${styles.navButton} ${styles.sideButton}`}>→</button>
 
-      {/* Tombol Prev + Next bawah (mobile only) */}
-      <div className={styles.bottomButtons}>
-        <button onClick={onPrev} className={styles.navButton}>Prev</button>
-        <button onClick={onNext} className={styles.navButton}>Next</button>
-      </div>
+      {/* Tombol bawah (mobile) */}
+
     </div>
   );
 };

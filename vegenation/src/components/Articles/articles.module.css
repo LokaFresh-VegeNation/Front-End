@@ -1,66 +1,108 @@
-/* Artikel container */
 .articleContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  width: 100%;
 }
 
-/* Tombol samping (desktop) */
-.sideButton {
-  display: inline-block;
-}
-
-/* Card artikel */
 .articleCard {
   background-color: white;
   border-radius: 8px;
-  padding: 8px;
+  padding: 0;
   text-align: center;
   flex: 1;
   height: 250px;
   width: 380px;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imageFallback {
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.overlayContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: white;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .articleTitle {
-  font-size: 10px;
-  margin-top: 8px;
+  font-size: 12px;
   font-weight: bold;
-  color: black;
+  margin: 0 0 4px;
+  color: #fff;
 }
 
 .articleDescription {
-  font-size: 8px;
-  color: #666;
+  font-size: 10px;
+  margin: 0 0 8px;
+  color: #eee;
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.articleDate {
+  font-size: 9px;
+  color: #ccc;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
 }
 
 .articleLink {
-  font-size: 12px;
-  color: black;
-}
-
-/* Navigasi Artikel */
-.navButton {
+  font-size: 10px;
   background-color: #3D8D7A;
   color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.articleLink:hover {
+  background-color: #388e3c;
+}
+
+.navButtonInline {
+  background-color: #3D8D7A;
   border: none;
-  padding: 10px 10px;
-  border-radius: 12px;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 8px;
-  min-width: 30px;
 }
 
-.navButton:hover {
-  background-color: #A3D1C6;
-}
-
-/* Container tombol bawah (hidden desktop) */
-.bottomButtons {
-  display: none;
-  gap: 16px;
-  justify-content: center;
-  width: 100%;
+.navButtonInline:hover {
+  background-color: #388e3c;
 }
 
 @media (max-width: 768px) {
@@ -68,25 +110,39 @@
     flex-direction: column;
   }
 
-  /* Sembunyikan tombol samping di mobile */
   .sideButton {
     display: none;
   }
 
-  /* Tampilkan tombol bawah di mobile */
   .bottomButtons {
     display: flex;
   }
 
-  /* Card artikel responsif */
   .articleCard {
     width: 90%;
-    max-width: 100%;
+    height: 350px; /* tinggi tetap agar gambar muncul */
+    margin: auto;
   }
 
-  /* Tombol navigasi di mobile dibuat lebih besar */
-  .navButton {
-    font-size: 10px;
-    padding: 10px 20px;
-  }
+  .imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px; /* ketinggian gambar harus tetap */
+  border-radius: 8px;
+  overflow: hidden;
+}
+ 
+ .articleTitle {
+ font-size: 10px;
+ }
+ .articleDescription {
+  font-size: 8px;
+ }
+ .articleDate {
+  font-size: 8px;
+ }
+ 
+ .navButtonInline {
+  font-size: 8px;
+ }
 }

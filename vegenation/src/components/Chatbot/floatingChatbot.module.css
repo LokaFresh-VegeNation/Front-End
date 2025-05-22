@@ -31,8 +31,8 @@
 
 .iconWrapper {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 54px;
+  height: 54px;
 }
 
 .chatbotIcon {
@@ -52,7 +52,7 @@
   }
 
   .iconWrapper {
-    width: 20px;
-    height: 20px;
+    width: 48px;
+    height: 48px;
   }
 }

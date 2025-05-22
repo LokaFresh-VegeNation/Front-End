@@ -37,7 +37,7 @@ const PriceChart: React.FC<ChartProps> = ({ data }) => {
         <Line
           type="monotone"
           dataKey="harga"
-          stroke="#8884d8"
+          stroke="#3D8D7A"
           activeDot={{ r: 6 }}
         />
       </LineChart>

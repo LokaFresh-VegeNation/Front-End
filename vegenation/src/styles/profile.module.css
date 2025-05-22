@@ -185,7 +185,7 @@
 }
 
 .pagination button:disabled {
-  background: #b1d9aa;
+  background: #368e7a;
   cursor: not-allowed;
 }
 
@@ -196,6 +196,11 @@
   text-align: center;
 }
 
+.sectionDescription {
+  text-align: center;
+  padding-top: 12px;
+}
+
 .predictionList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -204,13 +209,11 @@
 }
 
 .predictionCard {
-  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 1rem;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
   transition: transform 0.2s ease;
 }
 

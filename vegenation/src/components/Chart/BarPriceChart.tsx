@@ -21,7 +21,7 @@ const BarPriceChart: React.FC<ChartProps> = ({ data }) => {
           domain={['dataMin - 10', 'dataMax + 10']}
         />
         <Tooltip formatter={(value: any) => formatHarga(value)} />
-        <Bar dataKey="harga" fill="#4caf50" />
+        <Bar dataKey="harga" fill="#3D8D7A" />
       </BarChart>
     </ResponsiveContainer>
   );

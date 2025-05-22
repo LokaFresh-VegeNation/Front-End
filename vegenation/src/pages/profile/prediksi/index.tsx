@@ -77,7 +77,7 @@ export default function PredictionsPage() {
                   height={24}
                   className={styles.icon}
                 />
-                <span>Prediksi</span>
+                <span>Riwayat Prediksi</span>
               </li>
               <li onClick={handleLogout} className={styles.logoutButton}>
                 <Image
@@ -87,14 +87,14 @@ export default function PredictionsPage() {
                   height={24}
                   className={styles.icon}
                 />
-                <span>Logout</span>
+                <span>Keluar</span>
               </li>
             </ul>
           </aside>
           <main className={styles.main}>
             <h2 className={styles.sectionTitle}>Riwayat Prediksi Tersimpan</h2>
             {predictions.length === 0 ? (
-              <p>Tidak ada prediksi yang disimpan.</p>
+              <p className={styles.sectionDescription}>Tidak ada prediksi yang disimpan.</p>
             ) : (
               <>
                 <div className={styles.predictionList}>

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap');
 /* CSS yang sudah ada */
 .container {
-  padding: 100px 20px 20px 20px; /* Tambahkan padding-top 80px */
+  padding: 91px 20px 20px 20px; /* Tambahkan padding-top 80px */
   background-color: #3D8D7A;
   min-height: 100vh;
   display: flex;
@@ -24,7 +24,7 @@
   padding: 12px 16px;
   background-color: #3D8D7A;
   border: solid;
-  border-radius: 12px;
+  border-radius: 8px;
   color: white;
   font-size: 16px;
   font-family: poppins;
@@ -32,18 +32,24 @@
 
 .button {
   color: white;
-  padding: 10px 20px;
+  padding: 16px 20px;
   text-align: center;
   display: inline-block;
   font-size: 16px;
   border-style: solid;
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
   background-color: #3D8D7A;
 }
 
 .button:hover {
-  background-color: #B1D9AA;
+  background-color: #388e3c;
+}
+
+.button:disabled {
+  background-color: #388e3c;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 
@@ -51,15 +57,21 @@
 .mainContent {
   display: flex;
   gap: 20px;
-  
   flex: 1;
+}
+
+.leftContent {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /*Chart section*/
 .chartPlaceholder {
   padding: 2%;
   flex: 2;
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column; /* ini bikin card di atas, chart di bawah */
   align-items: stretch; /* biar item ikut lebar kotak */
@@ -91,9 +103,8 @@
   font-size: 18px;
   font-weight: 500;
   color: #333;
-  border-radius: 20px;
+  border-radius: 12px;
 }
-
 
 
 /* Pesan Awal Sebelum Prediksi */
@@ -145,7 +156,7 @@
 }
 
 .active {
-  background: #4caf50;
+  background: #3D8D7A;
   color: #fff;
 }
 
@@ -161,7 +172,7 @@
 /*Sidebar Artikel*/
 .sidebarItem {
   flex: 1;
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,10 +182,28 @@
   background-color: white;
 }
 
+.headerWrapper {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  margin: 0;
+  color: #333;
+}
+
+.underline {
+  width: 30px;
+  height: 3px;
+  background-color: #3D8D7A;
+  margin: 6px auto 0;
+}
+
 /*Sidebar Chatbot*/
 .sidebarItem1 {
   flex: 1;
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -202,10 +231,16 @@
   .inputField,
   .button {
     width: 100%;
+    background-color: #3D8D7A
   }
 
   .mainContent {
     flex-direction: column;
+  }
+
+  .chartTitle {
+    padding-top: 12px;
+    font-size: 16px;
   }
 
   .sidebar {
@@ -225,6 +260,10 @@
   .sidebarItem1 {
     width: 100%;
     overflow: auto;
+  }
+
+  .sectionTitle {
+    font-size: 12px;
   }
 
   .viewSelectorWrapper,

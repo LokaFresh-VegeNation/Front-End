@@ -51,7 +51,7 @@ const PriceSummaryCard: React.FC<PriceSummaryCardProps> = ({
   } else {
     indicator = '➖';
     indicatorText = 'Stabil';
-    indicatorClass = styles.indicatorGray;
+    indicatorClass = styles.indicatorWhite;
   }
 
   const handleSavePrediction = () => {

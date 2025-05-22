@@ -50,12 +50,12 @@
 }
 
 .botAvatar {
-  border-radius: 50%;
+  background: transparent;
 }
 
 /* User bubble */
 .userMessage {
-  background-color: #4CAF50;
+  background-color: #3D8D7A;
   color: white;
   padding: 10px 14px;
   border-radius: 16px 16px 0 16px;
@@ -80,7 +80,6 @@
   display: flex;
   align-items: center;
   padding: 8px;
-  border-top: 1px solid #ddd;
   background-color: white;
 
   /* Tetap di bawah */
@@ -106,7 +105,7 @@
   margin-left: 8px;
   padding: 8px 12px;
   font-size: 14px;
-  background-color: #2ecc71;
+  background-color: #3D8D7A;
   color: white;
   border: none;
   border-radius: 8px;
@@ -114,7 +113,7 @@
 }
 
 .sendButton:hover {
-  background-color: #B1D9AA;
+  background-color: #388e3c;
 }
 
 .errorMessage {
@@ -131,3 +130,15 @@
   to { opacity: 1; }
 }
 
+@media screen and (max-width: 768px) {
+  .chatMessages, 
+  .botMessage,
+  .userMessage {
+  font-size: 12px;
+  }
+
+  .sendButton,
+  .chatInput {
+  font-size: 12px;
+  }
+}
