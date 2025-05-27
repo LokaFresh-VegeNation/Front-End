@@ -51,8 +51,8 @@ export default function Navbar() {
 
       <div className={`${styles.links} ${isOpen ? styles.showMenu : ''}`}>
         <Link href="/dashboard">Dashboard</Link>
-        <Link href="#articles">Articles</Link>
-        <Link href="#about">About</Link>
+        <Link href="/#articles">Articles</Link>
+        <Link href="/#about">About</Link>
 
         {/* ✅ Logo hanya muncul saat di halaman dashboard */}
         {router.pathname === '/dashboard' && (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // ← tambahkan useEffect
 import Image from 'next/image';
 import styles from '@/components/Articles/articles.module.css';
 
@@ -21,8 +21,16 @@ const Articles: React.FC<Props> = ({ articles = [], index = 0, onPrev, onNext })
   const safeIndex = Math.max(0, Math.min(index, articles.length - 1));
   const article = articles[safeIndex];
 
-  if (!article) return null;
+useEffect(() => {
+  const interval = setInterval(() => {
+    onNext();
+  }, 10000); // 3000ms = 3 detik
 
+  return () => clearInterval(interval); // bersihkan saat unmount
+}, [onNext]);
+
+  if (!article) return null;
+  
   return (
     <div className={styles.articleContainer}>
       {/* Kartu Artikel dengan Overlay */}

@@ -49,6 +49,11 @@ export default function PredictionsPage() {
   }
 };
 
+function formatCommodityName(name: string) {
+  return name
+    .replace(/_/g, ' ') // ganti underscore dengan spasi
+    .replace(/\b\w/g, char => char.toUpperCase()); // kapitalisasi huruf awal tiap kata
+}
 
   return (
     <>
@@ -100,9 +105,9 @@ export default function PredictionsPage() {
                 <div className={styles.predictionList}>
                   {currentPredictions.map((p, index) => (
                     <div key={index} className={styles.predictionCard}>
-                      <h3>{p.commodityName}</h3>
-                      <p>Harga Prediksi: Rp {p.latestPrice.toLocaleString('id-ID')}</p>
-                      <p>Harga Awal: Rp {p.firstPrice.toLocaleString('id-ID')}</p>
+                      <h3>{formatCommodityName(p.commodityName)}</h3>
+                      <p>Harga Prediksi: Rp {p.latestPrice.toLocaleString('id-ID')} /kg</p>
+                      <p>Harga Awal: Rp {p.firstPrice.toLocaleString('id-ID')} /kg</p>
                       <p>Tanggal Prediksi: {p.date}</p>
                       <p>Disimpan pada: {new Date(p.savedAt).toLocaleString('id-ID')}</p>
                       <button className={styles.deleteBtn} onClick={() => handleDelete(index)}>

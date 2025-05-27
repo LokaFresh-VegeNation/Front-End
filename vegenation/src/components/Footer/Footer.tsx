@@ -20,27 +20,30 @@ export default function Footer() {
         <div className={styles.column}>
           <h4>Use cases</h4>
           <ul>
-            <li>UI design</li>
-            <li>UX design</li>
-            <li>Wireframing</li>
+            <li>Market price prediction</li>
+            <li>Supply chain optimization</li>
+            <li>Consumer demand forecasting</li>
           </ul>
         </div>
+
         <div className={styles.column}>
           <h4>Explore</h4>
           <ul>
-            <li>Design</li>
-            <li>Prototyping</li>
-            <li>Development features</li>
+            <li>Data visualization</li>
+            <li>Model optimization</li>
+            <li>Natural language processing</li>
           </ul>
         </div>
+
         <div className={styles.column}>
           <h4>Resources</h4>
           <ul>
-            <li>Blog</li>
-            <li>Best practices</li>
-            <li>Colors</li>
+            <li>Research papers</li>
+            <li>AI ethics guidelines</li>
+            <li>Toolkits & libraries</li>
           </ul>
         </div>
+
       </div>
     </footer>
   );

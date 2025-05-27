@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import styles from '@/styles/dashboard.module.css';
 import PriceChart from '@/components/Chart/PriceChart';
 import BarPriceChart from '@/components/Chart/BarPriceChart';
-import AreaPriceChart from '@/components/Chart/AreaPriceChart'; // ✅ Tambahan
 import PriceSummaryCard from '@/components/Chart/PriceSummaryCard';
 import Articles from '@/components/Articles/Articles';
 import ChatBot from '@/components/Chatbot/Chatbot';
@@ -56,7 +55,7 @@ const Dashboard: React.FC = () => {
   const [articles, setArticles] = useState<any[]>([]);
   const [currentArticleIndex, setCurrentArticleIndex] = useState<number>(0);
 
-  const [chartType, setChartType] = useState<'line' | 'bar' | 'area'>('line'); // ✅ Tambah "area"
+  const [chartType, setChartType] = useState<'line' | 'bar' >('line'); 
   const [viewMode, setViewMode] = useState<'day' | 'week' | 'month'>('day');
 
   const handleCommodityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -109,26 +108,37 @@ const Dashboard: React.FC = () => {
           <div className={styles.leftContent}>
             {/* Filter */}
             <div className={styles.topFilter}>
-              <select className={styles.inputField} value={selectedCommodity} onChange={handleCommodityChange}>
-                <option value="">Pilih Komoditas</option>
-                <option value="cabai">Cabai</option>
-                <option value="bawang_merah">Bawang Merah</option>
-                <option value="bawang_putih">Bawang Putih</option>
-              </select>
-              <input className={styles.inputField} type="date" value={selectedDate} onChange={handleDateChange} />
-              <button
-                className={styles.button}
-                onClick={async () => {
-                  if (isLoadingChart) return; // Cegah klik ganda
-                  setIsLoadingChart(true);
-                  await handlePredict();
-                  setIsLoadingChart(false);
-                }}
-                disabled={isLoadingChart}
-              >
-                {isLoadingChart ? 'Memuat...' : 'Prediksi'}
-              </button>
+              <div className={styles.inputGroup}>
+                <label className={styles.inputLabel}>Pilih Komoditas</label>
+                <select className={styles.inputField} value={selectedCommodity} onChange={handleCommodityChange}>
+                  <option value="">Pilih Komoditas</option>
+                  <option value="cabai">Cabai</option>
+                  <option value="bawang_merah">Bawang Merah</option>
+                  <option value="bawang_putih">Bawang Putih</option>
+                </select>
+              </div>
+
+              <div className={styles.inputGroup}>
+                <label className={styles.inputLabel}>Pilih Tanggal</label>
+                <input className={styles.inputField} type="date" value={selectedDate} onChange={handleDateChange} />
+              </div>
+
+              <div className={styles.buttonWrapper}>
+                <button
+                  className={styles.button}
+                  onClick={async () => {
+                    if (isLoadingChart) return;
+                    setIsLoadingChart(true);
+                    await handlePredict();
+                    setIsLoadingChart(false);
+                  }}
+                  disabled={isLoadingChart}
+                >
+                  {isLoadingChart ? 'Memuat...' : 'Prediksi'}
+                </button>
+              </div>
             </div>
+
 
             {/* Chart Section */}
             <div className={styles.chartPlaceholder} style={{ flexDirection: 'column', alignItems: 'stretch', position: 'relative' }}>
@@ -163,7 +173,7 @@ const Dashboard: React.FC = () => {
                   </div>
 
                   {/* Selector Day/Week/Month + Chart Type */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     {/* Dropdown View Mode */}
                     <div className={styles.viewSelectorWrapper}>
                       <select
@@ -192,12 +202,6 @@ const Dashboard: React.FC = () => {
                       >
                         📊 Bar
                       </button>
-                      <button
-                        onClick={() => setChartType('area')}
-                        className={`${styles.chartTypeButton} ${chartType === 'area' ? styles.active : ''}`}
-                      >
-                        🟦 Area
-                      </button>
                     </div>
 
                   </div>
@@ -207,7 +211,6 @@ const Dashboard: React.FC = () => {
                     const aggregated = aggregateData(chartData, viewMode);
                     if (chartType === 'line') return <PriceChart data={aggregated} />;
                     if (chartType === 'bar') return <BarPriceChart data={aggregated} />;
-                    if (chartType === 'area') return <AreaPriceChart data={aggregated} />;
                   })()}
                 </>
               )}

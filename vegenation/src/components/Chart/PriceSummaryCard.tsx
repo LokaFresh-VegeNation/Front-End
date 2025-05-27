@@ -33,6 +33,13 @@ const PriceSummaryCard: React.FC<PriceSummaryCardProps> = ({
     );
   }
 
+  function formatCommodityName(name: string) {
+    return name
+      .replace(/_/g, ' ') // Ganti underscore dengan spasi
+      .replace(/\b\w/g, char => char.toUpperCase()); // Kapitalisasi huruf awal tiap kata
+  }
+
+
   const changePercent = ((latestPrice - firstPrice) / firstPrice) * 100;
   const roundedChangePercent = Number(changePercent.toFixed(2));
 
@@ -41,18 +48,19 @@ const PriceSummaryCard: React.FC<PriceSummaryCardProps> = ({
   let indicatorClass = '';
 
   if (roundedChangePercent > 0) {
-    indicator = '🔺';
-    indicatorText = 'Naik';
-    indicatorClass = styles.indicatorRed;
-  } else if (roundedChangePercent < 0) {
-    indicator = '🔻';
-    indicatorText = 'Turun';
-    indicatorClass = styles.indicatorGreen;
-  } else {
-    indicator = '➖';
-    indicatorText = 'Stabil';
-    indicatorClass = styles.indicatorWhite;
-  }
+  indicator = '↗'; // Simbol naik
+  indicatorText = 'Naik';
+  indicatorClass = styles.indicatorRed; // Buat class ini berwarna merah
+} else if (roundedChangePercent < 0) {
+  indicator = '↘'; // Simbol turun
+  indicatorText = 'Turun';
+  indicatorClass = styles.indicatorGreen; // Buat class ini berwarna biru
+} else {
+  indicator = '→'; // Simbol stabil
+  indicatorText = 'Stabil';
+  indicatorClass = styles.indicatorWhite; // Buat class ini berwarna putih
+}
+
 
   const handleSavePrediction = () => {
     const prediction = {
@@ -73,7 +81,7 @@ const PriceSummaryCard: React.FC<PriceSummaryCardProps> = ({
     <div className={styles.card}>
       <div>
         <div className={styles.title}>
-          Prediksi Harga {commodityName ?? ''}
+          Prediksi Harga {commodityName ? formatCommodityName(commodityName) : ''}
         </div>
 
         <div className={styles.priceContainer}>
@@ -81,7 +89,7 @@ const PriceSummaryCard: React.FC<PriceSummaryCardProps> = ({
             Rp {latestPrice.toLocaleString('id-ID', {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2
-            })}
+            })} <span className={styles.unit}>/kg</span>
           </div>
           <div className={`${styles.indicator} ${indicatorClass}`}>
             {indicator}{' '}

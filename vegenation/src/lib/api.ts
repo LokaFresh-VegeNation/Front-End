@@ -2,7 +2,7 @@
 
 export const fetchPrediction = async (commodity: string, days: number) => {
   const res = await fetch(
-    `https://pblpnj.lokatani.id/vegenation/lstm/predict?comodity=${commodity}&num_days=${days}`
+    `https://pblpnj.lokatani.id/vegenation/predict?comodity=${commodity}&num_days=${days}`
   );
   return res.json();
 };

@@ -30,6 +30,12 @@
   word-break: break-word;
 }
 
+.unit {
+  font-size: 20px;
+  color: white;
+  margin-left: 4px;
+}
+
 .indicator {
   font-size: 16px;
   font-weight: bold;
@@ -40,14 +46,17 @@
 
 .indicatorRed {
   color: red;
+  font-weight: bold;
 }
 
 .indicatorGreen {
-  color: green;
+  color: greenyellow;
+  font-weight: bold;
 }
 
 .indicatorWhite {
   color: white;
+  font-weight: bold;
 }
 
 .date {
@@ -56,7 +65,7 @@
 }
 
 .saveButton {
-  margin-top: 1rem;
+  margin-top: 0.7rem;
   padding: 0.6rem 1.2rem;
   background-color: #3D8D7A;
   color: white;
@@ -77,8 +86,12 @@
     font-size: 20px;
   }
 
+  .unit {
+    font-size: 16px;
+  }
+
   .indicator {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .title {
@@ -97,6 +110,7 @@
   }
 
   .saveButton {
-    font-size: 12px;
+    font-size: 10px;
+    padding: 10px 12px;
   }
 }

@@ -69,7 +69,14 @@ export default function LoginPage() {
                   />{' '}
                   Show my password
                 </label>
-                <a href="#" className={styles.forgot}>
+                <a
+                  href="#"
+                  className={styles.forgot}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    alert('Silakan hubungi developer untuk mengetahui account Anda.');
+                  }}
+                >
                   Forgot Password?
                 </a>
               </div>

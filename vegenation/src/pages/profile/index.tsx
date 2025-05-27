@@ -129,7 +129,7 @@ export default function ProfilePage() {
               }}
             >
               <div>
-                <label>Nama</label>
+                <label>Nama*</label>
                 <input
                   type="text"
                   name="nama"
@@ -139,7 +139,7 @@ export default function ProfilePage() {
                 />
               </div>
               <div>
-                <label>Email</label>
+                <label>Email*</label>
                 <input
                   type="email"
                   name="email"
@@ -149,7 +149,7 @@ export default function ProfilePage() {
                 />
               </div>
               <div>
-                <label>No Telepon</label>
+                <label>No Telepon*</label>
                 <input
                   type="tel"
                   name="phone"

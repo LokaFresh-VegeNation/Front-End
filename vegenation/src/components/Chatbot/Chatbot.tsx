@@ -48,19 +48,33 @@ const ChatBot: React.FC = () => {
     setChatHistory(prev => [...prev, { type: 'bot', message: '' }]);
 
     const dotsInterval = setInterval(() => {
-  setTypingDots(prev => (prev.length >= 3 ? '.' : prev + '.'));
-}, 500);
+      setTypingDots(prev => (prev.length >= 3 ? '.' : prev + '.'));
+    }, 500);
 
 
     try {
       const data = await sendChatMessage(userMessage);
+
+      const formatResponse = (response: string): string => {
+        return response
+          .split('\n')
+          .map(line => {
+            const match = line.match(/^(\d{1,2} \w+ \d{4}): Rp([\d.,]+)/);
+            if (match) {
+              return `${match[1]}: Rp${match[2]}/kg`;
+            }
+            return line;
+          })
+          .join('\n');
+      };
 
       setTimeout(() => {
         clearInterval(dotsInterval);
         setTypingDots('');
         setChatHistory(prev => {
           const updated = [...prev];
-          updated[updated.length - 1] = { type: 'bot', message: data.response || 'Tidak ada jawaban.' };
+          const formattedMessage = formatResponse(data.response || 'Tidak ada jawaban.');
+          updated[updated.length - 1] = { type: 'bot', message: formattedMessage };
           return updated;
         });
         setLoading(false);
