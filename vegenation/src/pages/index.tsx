@@ -75,7 +75,7 @@ export default function Home() {
             <div className={styles.demoModal}>
               <div className={styles.modalContent}>
                 <iframe
-                  src="https://drive.google.com/file/d/1NIP_L6AtyrF6-SPRk-Ii2C-WMfgmtAbU/preview"
+                  src="https://drive.google.com/file/d/17-6ca0hvOIplg3VDVQd0wMRj4Lyim01w/preview"
                   width="100%"
                   height="100%"
                   frameBorder="0"

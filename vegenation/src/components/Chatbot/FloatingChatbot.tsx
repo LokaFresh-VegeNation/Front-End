@@ -19,7 +19,7 @@ const FloatingChatbot = () => {
      <button onClick={toggleChat} className={styles.chatbotToggle}>
   <div className={styles.iconWrapper}>
     <Image
-      src="/icons/chatbot2.png"
+      src="/icons/imasbook.png"
       alt="Chatbot"
       fill
       className={styles.chatbotIcon}

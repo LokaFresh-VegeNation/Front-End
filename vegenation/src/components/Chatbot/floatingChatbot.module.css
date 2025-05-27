@@ -6,7 +6,7 @@
 }
 
 .chatbotBox {
-  width: 330px;
+  width: 350px;
   height: 450px;
   background-color: white;
   border-radius: 16px;
@@ -17,7 +17,7 @@
 }
 
 .chatbotToggle {
-  background-color: #4caf50;
+  background-color: #368E7A;
   border: none;
   border-radius: 50%;
   width: 56px;

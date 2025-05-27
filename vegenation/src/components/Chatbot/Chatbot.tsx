@@ -113,10 +113,10 @@ const ChatBot: React.FC = () => {
           >
             {chat.type === 'bot' && (
               <Image
-                src="/icons/chatbot2.png"
+                src="/icons/imas5.png"
                 alt="Vegebot"
-                width={30}
-                height={30}
+                width={28}
+                height={28}
                 className={styles.botAvatar}
               />
             )}

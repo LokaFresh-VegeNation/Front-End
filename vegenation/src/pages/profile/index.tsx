@@ -63,6 +63,21 @@ export default function ProfilePage() {
     }
   };
 
+  const handleReset = () => {
+    const confirmReset = window.confirm('Apakah Anda yakin ingin mereset profil Anda? Semua data akan dihapus.');
+    if (confirmReset) {
+      localStorage.removeItem('userProfile');
+      setUser({
+        nama: '',
+        email: '',
+        phone: '',
+        address: '',
+        postalCode: '',
+      });
+      setIsEditing(false);
+    }
+  };
+
   const handleLogout = () => {
     router.push('/');
   };
@@ -177,9 +192,15 @@ export default function ProfilePage() {
                   disabled={!isEditing}
                 />
               </div>
-              <button type="submit" className={styles.saveBtn}>
-                {isEditing ? ' Save Changes' : ' Edit Profile'}
-              </button>
+              <div className={styles.buttonRow}>
+                <button type="submit" className={styles.saveBtn}>
+                  {isEditing ? 'Save Changes' : 'Edit Profile'}
+                </button>
+                <button type="button" onClick={handleReset} className={styles.resetBtn}>
+                  Reset Profile
+                </button>
+              </div>
+
             </form>
           </main>
         </div>

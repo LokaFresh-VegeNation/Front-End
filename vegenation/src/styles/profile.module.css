@@ -149,9 +149,15 @@
   font-family: poppins;
 }
 
-.saveBtn,
-.editBtn {
+.buttonRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
   grid-column: 1 / -1;
+}
+
+.saveBtn,
+.resetBtn {
   padding: 1rem;
   background-color: #368e7a;
   border: none;
@@ -163,7 +169,7 @@
 }
 
 .saveBtn:hover,
-.editBtn:hover {
+.resetBtn:hover {
   background-color: #b1d9aa;
 }
 
